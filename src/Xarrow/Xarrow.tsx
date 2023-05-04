@@ -101,7 +101,7 @@ const Xarrow: React.FC<xarrowPropsType> = (props: xarrowPropsType) => {
    * The Main logic of path calculation for the arrow.
    * calculate new path, adjusting canvas, and set state based on given properties.
    * */
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (shouldUpdatePosition.current) {
       // log('xarrow getPosition');
       const pos = getPosition(xProps, mainRef);
@@ -149,7 +149,7 @@ const Xarrow: React.FC<xarrowPropsType> = (props: xarrowPropsType) => {
   }
 
   // handle draw animation
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (lineRef.current) setSt((prevSt) => ({ ...prevSt, lineLength: lineRef.current?.getTotalLength() ?? 0 }));
   }, [lineRef.current]);
 
